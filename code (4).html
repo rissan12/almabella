@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alma Belle - Perfumes Exclusivos</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #e2c271; /* gold tone */
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem 3rem 1rem;
+    }
+
+    a {
+      color: #e2c271;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* Header / Hero */
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem 0;
+      border-bottom: 2px solid #e2c271;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      color: #f5deb3;
+      text-shadow: 0 0 10px #e2c271;
+    }
+    header p {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #f5deb3cc;
+    }
+    header .btn-primary {
+      font-size: 1.1rem;
+      background: linear-gradient(45deg, #cfa82f, #997a07);
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      color: #0a0a0a;
+      font-weight: 700;
+      box-shadow: 0 0 15px #cfa82faa;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    header .btn-primary:hover {
+      background: linear-gradient(45deg, #997a07, #cfa82f);
+      box-shadow: 0 0 25px #ffd700;
+    }
+
+    /* Perfume section */
+    #perfumes {
+      margin: 4rem 0;
+      text-align: center;
+    }
+    #perfumes h2 {
+      font-size: 2.7rem;
+      margin-bottom: 2rem;
+      color: #f5deb3;
+      text-shadow: 0 0 8px #e2c271bb;
+    }
+    .perfume-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .perfume-card {
+      background: #1a1a1a;
+      border: 2px solid #e2c271cc;
+      border-radius: 15px;
+      width: 280px;
+      padding: 1.8rem;
+      box-shadow: 0 0 15px #cfa82f55;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .perfume-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px #ffd700;
+    }
+    .perfume-image {
+      font-size: 6rem;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .perfume-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f5deb3;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+    .perfume-desc {
+      font-size: 1rem;
+      color: #bfae5b;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .perfume-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #cfa82f;
+      margin-bottom: 1.5rem;
+    }
+    .btn-buy {
+      background-color: #cfa82f;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 25px;
+      padding: 0.8rem 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 10px #cfa82fcc;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .btn-buy:hover {
+      background-color: #ffd700;
+      box-shadow: 0 0 20px #ffd700;
+    }
+    /* Scarcity badge */
+    .scarcity {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ffd700;
+      color: #0a0a0a;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+      box-shadow: 0 0 8px #ffd700aa;
+      user-select: none;
+    }
+
+    /* Ambassador program */
+    #ambassador {
+      background: linear-gradient(90deg, #000, #1a1a1a);
+      border: 2px solid #cfa82f;
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 3rem auto 2rem auto;
+      box-shadow: 0 0 20px #e2c271bb;
+      color: #fff3cc;
+      text-align: center;
+    }
+    #ambassador h2 {
+      font-size: 2.7rem;
+      margin-bottom: 1.2rem;
+      color: #f5deb3;
+      text-shadow: 0 0 12px #cfa82f;
+    }
+    #ambassador p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem auto;
+      line-height: 1.5;
+    }
+    #ambassador ul {
+      list-style: none;
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto 2rem auto;
+      padding-left: 1.2rem;
+    }
+    #ambassador ul li {
+      margin-bottom: 0.9rem;
+      font-weight: 600;
+      position: relative;
+      padding-left: 1.8rem;
+      color: #e2c271;
+    }
+    /* Custom check icon on list items */
+    #ambassador ul li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #ffd700;
+      font-weight: 900;
+      font-size: 1.15rem;
+      text-shadow: 0 0 5px #ffd700bb;
+      line-height: 1;
+      top: 1px;
+      user-select: none;
+    }
+    #ambassador .btn-secondary {
+      background: transparent;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      padding: 0.9rem 2.5rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    #ambassador .btn-secondary:hover {
+      background: #ffd700;
+      color: #0a0a0a;
+      box-shadow: 0 0 20px #ffd700aa;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 1.5rem 0;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #7a6a2f;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
+      .perfume-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .perfume-card {
+        width: 90vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Brand and tagline hero -->
+    <h1>Alma Belle</h1>
+    <p>Perfumes Exclusivos | Fragancias Únicas para Ti</p>
+    <button class="btn-primary" onclick="scrollToSection('perfumes')">Explora Nuestros Perfumes</button>
+  </header>
+
+  <main class="container" role="main" aria-label="Contenido principal del sitio">
+
+    <!-- Perfumes section -->
+    <section id="perfumes" aria-labelledby="perfumes-title">
+      <h2 id="perfumes-title">Fragancias Alma Belle</h2>
+      <div class="perfume-list">
+        <!-- 20ml perfume card -->
+        <article class="perfume-card" aria-label="Perfume de 20 mililitros a 50 soles">
+          <div class="scarcity" aria-live="polite" aria-atomic="true">¡Éxito Instantáneo!</div>
+          <div class="perfume-image" aria-hidden="true">🌸</div>
+          <h3 class="perfume-name">20 ml</h3>
+          <p class="perfume-desc">Perfecto para probar o llevar contigo a todos lados.</p>
+          <p class="perfume-price">S/ 50 soles</p>
+          <button class="btn-buy" onclick="alert('Has seleccionado el perfume Alma Belle 20ml a 50 soles. ¡Gracias por tu compra!')">Comprar Ahora</button>
+        </article>
+
+        <!-- 55ml perfume card -->
+        <article class="perfume-card" aria-label="Perfume de 55 mililitros a 120 soles">
+          <div class="scarcity" aria-live="polite" aria-atomic="true">Favorito Exclusivo</div>
+          <div class="perfume-image" aria-hidden="true">🌿</div>
+          <h3 class="perfume-name">55 ml</h3>
+          <p class="perfume-desc">Nuestra fragancia estrella para uso diario y ocasiones especiales.</p>
+          <p class="perfume-price">S/ 120 soles</p>
+          <button class="btn-buy" onclick="alert('Has seleccionado el perfume Alma Belle 55ml a 120 soles. ¡Gracias por tu compra!')">Comprar Ahora</button>
+        </article>
+
+        <!-- 110ml perfume card -->
+        <article class="perfume-card" aria-label="Perfume de 110 mililitros a 180 soles">
+          <div class="scarcity" aria-live="polite" aria-atomic="true">Edición Limitada</div>
+          <div class="perfume-image" aria-hidden="true">✨</div>
+          <h3 class="perfume-name">110 ml</h3>
+          <p class="perfume-desc">Para amantes de lo exclusivo y duradero. La esencia de Alma Belle.</p>
+          <p class="perfume-price">S/ 180 soles</p>
+          <button class="btn-buy" onclick="alert('Has seleccionado el perfume Alma Belle 110ml a 180 soles. ¡Gracias por tu compra!')">Comprar Ahora</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Ambassador Program Section -->
+    <section id="ambassador" aria-labelledby="ambassador-title">
+      <h2 id="ambassador-title">Sé Embajador de Alma Belle</h2>
+      <p>
+        Únete a nuestro exclusivo programa para embajadores y recibe todas las herramientas 
+        para vender nuestras fragancias tanto de forma física como digital.
+      </p>
+      <ul>
+        <li>Acceso a materiales de venta profesional y digitales exclusivos.</li>
+        <li>Comisiones atractivas por cada venta realizada.</li>
+        <li>Soporte y capacitación continua.</li>
+        <li>Flexibilidad para trabajar a tu propio ritmo y desde donde quieras.</li>
+        <li>Oportunidad de crecer con una marca de perfumes en ascenso.</li>
+      </ul>
+      <button class="btn-secondary" onclick="alert('Gracias por tu interés en ser embajador. Te contactaremos pronto con más información.')">Quiero ser Embajador</button>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2024 Alma Belle. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // Scroll smoothly to section by id
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+    }
+  </script>
+</body>
+</html>
+
